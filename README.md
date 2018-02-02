@@ -36,9 +36,7 @@ The following programs are required to build uShare:
 
  * GNU Make
 
-   GNU Make is a tool which controls the generation of executables and other non-source files of a program from the program's source files
-
-   webpage: https://www.gnu.org/software/make/
+   GNU Make is a tool which controls the generation of executables and other non-source files of a program from the program's source files. (see https://www.gnu.org/software/make/)
 
  * pkg-config.
 
@@ -88,8 +86,6 @@ gmake install-strip
 
 This will copy the executable and manual page into their appropriate
 directories (/usr/bin and /usr/man/man1 in this example).
-
-For more information regarding configure and make, see the INSTALL document.
 
 Usage
 =====
@@ -143,17 +139,17 @@ man ushare
 Supported File Formats List
 ===========================
 
-- Video files : asf, avi, dv, divx, wmv, mjpg, mjpeg, mpeg, mpg, mpe,
-  	      	mp2p, vob, mp2t, m1v, m2v, m4v, m4p, mp4ps, ts, ogm, mkv,
-		rmvb, mov, qt
+- Video files :
+  asf, avi, dv, divx, wmv, mjpg, mjpeg, mpeg, mpg, mpe, mp2p, vob, mp2t, m1v, m2v, m4v, m4p, mp4ps, ts, ogm, mkv, rmvb, mov, qt
 
-- Audio files : aac, ac3, aif, aiff, at3p, au, snd, dts, rmi, mp1, mp2, mp3,
-  	      	mp4, mpa, ogg, wav, pcm, lpcm, l16, wma, mka, ra, rm, ram
+- Audio files :
+  aac, ac3, aif, aiff, at3p, au, snd, dts, rmi, mp1, mp2, mp3, mp4, mpa, ogg, wav, pcm, lpcm, l16, wma, mka, ra, rm, ram
 
-- Images files : bmp, ico, gif, jpeg, jpg, jpe, pcd, png, pnm, ppm,
-  	       	 qti, qtf, qtif, tif, tiff
+- Images files :
+  bmp, ico, gif, jpeg, jpg, jpe, pcd, png, pnm, ppm, qti, qtf, qtif, tif, tiff
 
-- Playlist files : pls, m3u, asx
+- Playlist files :
+  pls, m3u, asx
 
 If you want uShare to support more file formats, simply add its properties
 in the src/mime.c table. Do not forget to send a patch to update uShare.
