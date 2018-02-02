@@ -296,7 +296,7 @@ localedir='${PREFIX}/share/locale'
 dlna="no"
 nls="yes"
 cc="cc"
-make="make"
+make="gmake"
 strip="strip"
 cpu=`uname -m`
 optimize="yes"
@@ -575,7 +575,7 @@ else
 fi
 
 # add some useful compiler flags if supported
-add_cflags -I/usr/local/include
+add_cflags -I.. -I/usr/local/include
 add_ldflags -L/usr/local/lib
 check_cflags -W
 check_cflags -Wall
@@ -627,6 +627,7 @@ check_lib langinfo.h nl_langinfo "" && add_cflags -DHAVE_LANGINFO_CODESET
 #################################################
 echolog "Checking for iconv ..."
 check_lib iconv.h iconv "" && add_cflags -DHAVE_ICONV
+add_extralibs -lintl -liconv
 
 #################################################
 #   check for libupnp and friends (mandatory)
@@ -709,7 +710,7 @@ append_config "bindir=\$(DESTDIR)$bindir"
 append_config "sysconfdir=\$(DESTDIR)$sysconfdir"
 append_config "localedir=\$(DESTDIR)$localedir"
 
-append_config "MAKE=gmake"
+append_config "MAKE=$make"
 append_config "CC=$cc"
 append_config "LN=ln"
 if enabled dostrip; then
@@ -721,7 +722,7 @@ else
 fi
 append_config "EXTRALIBS=$extralibs"
 
-append_config "OPTFLAGS=$CFLAGS"
+append_config "CFLAGS=$CFLAGS"
 append_config "LDFLAGS=$LDFLAGS"
 append_config "INSTALL=$INSTALL"
 

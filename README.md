@@ -1,5 +1,5 @@
-GeeXboX uShare - Introduction
-=============================
+GeeXboX uShare (Modified Version)
+================================================
 
 GeeXboX uShare is a UPnP (TM) A/V Media Server. It implements the server
 component that provides UPnP media devices with information on available
@@ -14,36 +14,14 @@ streams to fit the client requirements.
 uShare is written in C for the GeeXboX project (see http://www.geexbox.org/).
 It is designed to provide access to multimedia contents to GeeXboX but can of
 course be used by any other UPnP client device.
-It should compile and run on any modern POSIX compatible system such as Linux.
+
+This is a modified version of the original release. Including some bug fixes and modifications in order to compile and run on **FreeBSD**. See *ChangeLog* for details. For the remaining part of the document, if not explicitly speciifed, it's assumed that the underlying os is a FreeBSD system. Some additional settings  might be necessary if it would be  used on linux systems. See section **For Linux Users**.
 
 GeeXboX uShare is free software - it is licensed under the terms of the GNU
 General Public License (GPL).
 
-Copyright and License
-=====================
-
-GeeXboX uShare is copyright (C) 2005-2007 Benjamin Zores.
-
-This program is free software; you can redistribute it and/or modify it
-under the terms of the GNU General Public License as published by the Free
-Software Foundation; either version 2 of the License, or (at your option)
-any later version.
-
-This program is distributed in the hope that it will be useful, but WITHOUT
-ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
-FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
-more details.
-
-You should have received a copy of the GNU General Public License along
-with this program; if not, write to the Free Software Foundation, Inc., 51
-Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
-
-Note that uShare links with libupnp, which is licensed under the
-terms of a modified BSD license (i.e. the original BSD license without the
-advertising clause). This license is compatible with the GNU GPL.
-
-Homepage
-========
+Homepage (the original release)
+================================
 
 Web site and file area for uShare is hosted on GeeXboX server :
 
@@ -56,10 +34,10 @@ Requirements
 
 The following programs are required to build uShare:
 
- * GNU C Compiler (gcc), 2.95 or later.
+ * GNU Make
 
-   The GNU C Compiler is part of the GNU Compiler Collection which can be
-   downloaded from http://gcc.gnu.org/.
+   GNU Make is a tool which controls the generation of executables and other non-source files of a program from the program's source files
+   webpage: https://www.gnu.org/software/make/
 
  * pkg-config.
 
@@ -69,7 +47,7 @@ The following programs are required to build uShare:
 
 The following UPnP library is required to build and run uShare :
 
- * Linux SDK for UPnP Devices (libupnp), 1.4.2 or later
+ * libupnp, 1.4.2 or later
 
    The libupnp library is used to communicate using the UPnP protocol.
    libupnp can be downloaded from http://pupnp.sourceforge.net/.
@@ -94,14 +72,14 @@ to activate support for debug messages in uShare.
 Example :
 
 CFLAGS="-Os" ./configure --prefix=/usr
-make
+gmake
 
 You can enable DLNA support by doing a:
 ./configure --enable-dlna
 
 If you want to install uShare on your system, run :
 
-make install-strip
+gmake install-strip
 
 This will copy the executable and manual page into their appropriate
 directories (/usr/bin and /usr/man/man1 in this example).
@@ -171,13 +149,6 @@ Supported File Formats List
 If you want uShare to support more file formats, simply add its properties
 in the src/mime.c table. Do not forget to send a patch to update uShare.
 
-Feedback
-========
-
-Please send bug reports, suggestions, ideas, comments or patches to :
-
-   ushare@geexbox.org
-
 Known bugs and limitations
 ==========================
 
@@ -187,19 +158,17 @@ multiple instances of the media server.
 uShare keeps some information on files in memory.
 If your multimedia collection is huge, this might be a problem.
 
-Thanks
-======
+For Linux Users
+===============
 
-Many thanks to Oskar Liljeblad for its original work on GMediaServer
-(which is much more functionnal in terms of UPnP A/V features that
-uShare will ever be).
+The source code should just work on any Linux os as it does on FreeBSD systems. But the default settings in `configure` script is meant to work only for FreeBSD, Linux users need to speficy the compiler (via `CC`) and make system (via `MAKE`) accordingly.In the usual case, Gcc is the default comiler and gnu make is the default make system on linux.
 
-References
-==========
+For example:
+```C
+CC=gcc MAKE=make ./configure ...
+```
 
-Note that this list of references is not complete.
-
- * UPnP(TM) Standards (http://www.upnp.org/standardizeddcps/default.asp)
+Also, since the `make` command on linux is default to be gnu make, all the `gmake` commands mentioned above should be replaced with `make`.
 
 Trademarks
 ==========
