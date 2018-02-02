@@ -37,6 +37,7 @@ The following programs are required to build uShare:
  * GNU Make
 
    GNU Make is a tool which controls the generation of executables and other non-source files of a program from the program's source files
+
    webpage: https://www.gnu.org/software/make/
 
  * pkg-config.
@@ -70,16 +71,20 @@ You can pass the CFLAGS you want to configure including -DDEBUG in order
 to activate support for debug messages in uShare.
 
 Example :
-
+```shell
 CFLAGS="-Os" ./configure --prefix=/usr
 gmake
+```
 
-You can enable DLNA support by doing a:
+You can enable DLNA support by doing:
+```shell
 ./configure --enable-dlna
+```
 
 If you want to install uShare on your system, run :
-
+```shell
 gmake install-strip
+```
 
 This will copy the executable and manual page into their appropriate
 directories (/usr/bin and /usr/man/man1 in this example).
@@ -92,6 +97,7 @@ Usage
 uShare runs from the console only. It supports the usual --help option
 which displays usage and option information.
 
+```shell
 Usage: ushare [-n name] [-i interface] [-c directory] [[-c directory] ...]
 Options:
  -n, --name=NAME        Set UPnP Friendly Name (default is 'uShare')
@@ -109,40 +115,43 @@ Options:
  -D, --daemon           Run as a daemon.
  -V, --version          Display the version of uShare and exit
  -h, --help             Display this help
+```
 
-uShare gets its configuration from the /etc/ushare.conf file.
+uShare gets its configuration from the `/etc/ushare.conf` file.
 You can force configuration options through command line.
 
 uShare expects one or several directory argument (-c argument),
 specifying where multimedia files are stored. You should probably also use
 the -i option to specify which interface uShare should listen on.
 
-   ushare -c /shares
-   ushare -c /shares1 --content=/shares2
+```shell
+ushare -c /shares
+ushare -c /shares1 --content=/shares2
+```
 
 You can also perform remote control of uShare UPnP Media Server through its
 web interface. This let you define new content locations at runtime or
 update the currently shared one in case the filesystem has changed.
-Just go to :
-
-   http://ip_address:port/web/ushare.html
+Just go to : `http://ip_address:port/web/ushare.html`
 
 See the manual page for more details :
 
-   man ushare
+```shell
+man ushare
+```
 
 Supported File Formats List
 ===========================
 
 - Video files : asf, avi, dv, divx, wmv, mjpg, mjpeg, mpeg, mpg, mpe,
-                mp2p, vob, mp2t, m1v, m2v, m4v, m4p, mp4ps, ts, ogm, mkv,
-                rmvb, mov, qt
+  	      	mp2p, vob, mp2t, m1v, m2v, m4v, m4p, mp4ps, ts, ogm, mkv,
+		rmvb, mov, qt
 
 - Audio files : aac, ac3, aif, aiff, at3p, au, snd, dts, rmi, mp1, mp2, mp3,
-                mp4, mpa, ogg, wav, pcm, lpcm, l16, wma, mka, ra, rm, ram
+  	      	mp4, mpa, ogg, wav, pcm, lpcm, l16, wma, mka, ra, rm, ram
 
 - Images files : bmp, ico, gif, jpeg, jpg, jpe, pcd, png, pnm, ppm,
-                 qti, qtf, qtif, tif, tiff
+  	       	 qti, qtf, qtif, tif, tiff
 
 - Playlist files : pls, m3u, asx
 
@@ -164,7 +173,7 @@ For Linux Users
 The source code should just work on any Linux os as it does on FreeBSD systems. But the default settings in `configure` script is meant to work only for FreeBSD, Linux users need to speficy the compiler (via `CC`) and make system (via `MAKE`) accordingly.In the usual case, Gcc is the default comiler and gnu make is the default make system on linux.
 
 For example:
-```C
+```shell
 CC=gcc MAKE=make ./configure ...
 ```
 
@@ -174,5 +183,3 @@ Trademarks
 ==========
 
 UPnP(TM) is a trademark of the UPnP(TM) Implementers Corporation.
-
--

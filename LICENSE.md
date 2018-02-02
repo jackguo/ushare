@@ -2,6 +2,7 @@ Copyright and License
 =====================
 
 **GeeXboX uShare** is copyright (C) 2005-2007 Benjamin Zores.
+
 **Modified work Copyright 2018 Junsheng Guo**
 
 This program is free software; you can redistribute it and/or modify it
