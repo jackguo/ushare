@@ -1,3 +1,8 @@
+2018-02-04  Junsheng Guo
+        * fixed build for FreeBSD.
+	* include necessary c header files to avoid compiler warning and seg fault
+	* use setlocale to get locale settings from current environment
+
 2007-12-09  Benjamin Zores <ben@geexbox.org>
 
 	* new public release (Version 1.1a).
