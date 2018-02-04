@@ -15,7 +15,7 @@ uShare is written in C for the GeeXboX project (see http://www.geexbox.org/).
 It is designed to provide access to multimedia contents to GeeXboX but can of
 course be used by any other UPnP client device.
 
-This is a modified version of the original release. Including some bug fixes and modifications in order to compile and run on **FreeBSD**. See *ChangeLog* for details. For the remaining part of the document, if not explicitly speciifed, it's assumed that the underlying os is a FreeBSD system. Some additional settings  might be necessary if it would be  used on linux systems. See section **For Linux Users**.
+This is a modified version of the original release. Including some bug fixes and modifications in order to compile and run on **FreeBSD**. See *ChangeLog* for details. For the remaining part of the document, if not explicitly speciifed, it's assumed that the underlying os is a FreeBSD system. Some additional settings  might be necessary if it would be used for linux systems. See section **For Linux Users**.
 
 GeeXboX uShare is free software - it is licensed under the terms of the GNU
 General Public License (GPL).
@@ -166,7 +166,7 @@ If your multimedia collection is huge, this might be a problem.
 For Linux Users
 ===============
 
-The source code should just work on any Linux os as it does on FreeBSD systems. But the default settings in `configure` script is meant to work only for FreeBSD, Linux users need to speficy the compiler (via `CC`) and make system (via `MAKE`) accordingly.In the usual case, Gcc is the default comiler and gnu make is the default make system on linux.
+The source code should just work under any Linux os as it does under FreeBSD systems. But the default settings in `configure` script is meant to work only for FreeBSD, Linux users need to speficy the compiler (via `CC`) and make system (via `MAKE`) accordingly.In the usual case, Gcc is the default comiler and gnu make is the default make system on linux.
 
 For example:
 ```shell
