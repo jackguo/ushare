@@ -54,7 +54,7 @@ OBJS = $(SRCS:.c=.o)
 all: depend $(PROG)
 
 .c.o:
-	$(CC) -c $(CFLAGS) $(OPTFLAGS) -o $@ $<
+	$(CC) -c $(CFLAGS) -o $@ $<
 
 $(PROG): $(OBJS)
 	$(CC) $(OBJS) $(LDFLAGS) $(EXTRALIBS) -o $@

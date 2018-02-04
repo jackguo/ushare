@@ -31,18 +31,25 @@ static iconv_t cd = 0;
 #endif
 
 #if HAVE_LANGINFO_CODESET
-#include <langinfo.h>
+#include <locale.h>
 #endif
 
 void
 setup_iconv (void)
 {
-#if HAVE_ICONV && HAVE_LANGINFO_CODESET
-  char *mycodeset = NULL;
 
-  mycodeset = nl_langinfo (CODESET);
-  if (!mycodeset)
+#if HAVE_ICONV && HAVE_LANGINFO_CODESET
+  char *mycodeset = NULL, *native_env_locale = NULL;
+  native_env_locale = setlocale(LC_ALL, "");
+
+  mycodeset = strchr(native_env_locale, '.');
+  
+  if (!mycodeset) {
     return;
+  } else {
+    ++mycodeset;
+  }
+  
 
   /**
    * Setup conversion descriptor if user's console is non-UTF-8. Otherwise
@@ -58,6 +65,7 @@ setup_iconv (void)
     }
   }
 #endif
+
 }
 
 void

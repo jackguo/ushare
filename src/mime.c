@@ -20,6 +20,7 @@
  */
 
 #include <stdlib.h>
+#include <stdio.h>
 #include <string.h>
 
 #include "mime.h"
@@ -144,7 +145,7 @@ char *mime_get_protocol (struct mime_type_t *mime)
   if (!mime)
     return NULL;
 
-  sprintf (protocol, mime->mime_protocol);
+  sprintf (protocol, "%s", mime->mime_protocol);
   strcat (protocol, "*");
   return strdup (protocol);
 }

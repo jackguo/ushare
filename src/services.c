@@ -20,6 +20,7 @@
  */
 
 #include <stdlib.h>
+#include <string.h>
 #include <upnp/upnp.h>
 #include <upnp/upnptools.h>
 
@@ -69,8 +70,9 @@ find_service_action (struct Upnp_Action_Request *request,
   *service = NULL;
   *action = NULL;
 
-  if (!request || !request->ActionName)
+  if (!request) {
     return false;
+  }
 
   for (c = 0; services[c].id != NULL; c++)
     if (!strcmp (services[c].id, request->ServiceID))
