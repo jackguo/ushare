@@ -476,8 +476,7 @@ metadata_add_container (struct ushare_t *ut,
       continue;
     }
 
-    fullpath = (char *)
-      malloc (strlen (container) + strlen (namelist[i]->d_name) + 2);
+    fullpath = (char *) malloc (strlen (container) + strlen (namelist[i]->d_name) + 2);
     sprintf (fullpath, "%s/%s", container, namelist[i]->d_name);
 
     log_verbose ("%s\n", fullpath);
@@ -592,4 +591,3 @@ rb_compare (const void *pa, const void *pb,
 
   return 0;
 }
-

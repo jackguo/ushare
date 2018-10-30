@@ -64,6 +64,8 @@ const struct mime_type_t MIME_Type_List[] = {
   { "qt",    UPNP_VIDEO, "http-get:*:video/quicktime:"},
   { "bin",   UPNP_VIDEO, "http-get:*:video/mpeg2:"},
   { "iso",   UPNP_VIDEO, "http-get:*:video/mpeg2:"},
+  { "flv",   UPNP_VIDEO, "http-get:*:video/x-flv:"},
+  { "mp4",   UPNP_VIDEO, "http-get:*:video/mp4:"},
 
   /* Audio files */
   { "3gp",  UPNP_AUDIO, "http-get:*:audio/3gpp:"},
@@ -80,7 +82,7 @@ const struct mime_type_t MIME_Type_List[] = {
   { "mp1",  UPNP_AUDIO, "http-get:*:audio/mp1:"},
   { "mp2",  UPNP_AUDIO, "http-get:*:audio/mp2:"},
   { "mp3",  UPNP_AUDIO, "http-get:*:audio/mpeg:"},
-  { "mp4",  UPNP_AUDIO, "http-get:*:audio/mp4:"},
+  //  { "mp4",  UPNP_AUDIO, "http-get:*:audio/mp4:"},
   { "m4a",  UPNP_AUDIO, "http-get:*:audio/mp4:"},
   { "ogg",  UPNP_AUDIO, "http-get:*:audio/x-ogg:"},
   { "wav",  UPNP_AUDIO, "http-get:*:audio/wav:"},
