@@ -24,6 +24,8 @@
 #include <errno.h>
 
 #include "util_iconv.h"
+#include "trace.h"
+#include "gettext.h"
 
 #if HAVE_ICONV
 #include <iconv.h>
@@ -41,6 +43,13 @@ setup_iconv (void)
 #if HAVE_ICONV && HAVE_LANGINFO_CODESET
   char *mycodeset = NULL, *native_env_locale = NULL;
   native_env_locale = setlocale(LC_ALL, "");
+
+  if (!native_env_locale) {
+    log_info(_("Cannot get native envrioment locale, it could be that LC_ALL isn't set! Use en_US.UTF-8.\n"));
+    // set the default locale, en_US.UTF-8
+    setlocale(LC_ALL, "en_US.UTF-8");
+    return;
+  }
 
   mycodeset = strchr(native_env_locale, '.');
   
