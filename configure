@@ -67,7 +67,7 @@ echolog(){
 }
 
 clean(){
-    rm -f $TMPC $TMPO $TMPE $TMPS
+    rm -f $TMPC $TMPO $TMPE $TMPS $CONFIG_H $logfile $CONFIGFILE
 }
 
 die(){
